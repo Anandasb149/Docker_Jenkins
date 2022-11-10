@@ -64,13 +64,10 @@ stages:
     
     - upload : $(Build.ArtifactStagingDirectory)
       artifact: drop
-    - task: AzureRmWebAppDeployment@4
+    - task: AzureWebAppContainer@1
       inputs:
-        ConnectionType: 'AzureRM'
-        azureSubscription: 'BFSI_LGI_DevOps_Training_POC (f3f0b402-1498-4537-9728-704a780011a0)'
-        appType: 'webAppLinux'
-        WebAppName: 'dockerdeploy1'
-        packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.jar'    
+        azureSubscription: 'BFSI_LGI_DevOps_Training_POC (f3f0b402-1498-4537-9728-704a780011a0)-4643'
+        appName: 'webdep'
 
       
 
