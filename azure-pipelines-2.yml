@@ -68,6 +68,7 @@ stages:
       inputs:
         azureSubscription: 'BFSI_LGI_DevOps_Training_POC (f3f0b402-1498-4537-9728-704a780011a0)-4643'
         appName: 'webdep'
+        containers: 'anandhub.azurecr.io/anandasb149dockerjenkins_app'
 
       
 
