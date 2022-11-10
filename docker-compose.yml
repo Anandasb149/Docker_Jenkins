@@ -2,7 +2,6 @@ services:
   app:
     depends_on:
        - db
-       
     build: .
     ports:
       - "8069:8079"
@@ -11,15 +10,15 @@ services:
       - spring-mysql
   db:
     image: mysql:latest
-    container_name: anand1
+    container_name: db
     volumes:
       - db_data:/var/lib/mysql
     restart: always
     environment:
-      - MYSQL_ROOT_PASSWORD=root/example
-      - MYSQL_DATABASE=master
-      - MYSQL_USER=Master12@deploymysql.mysql.database.azure.com
-      - MYSQL_PASSWORD=Master123@
+      - MYSQL_ROOT_PASSWORD=example
+      - MYSQL_DATABASE=lngdb
+      - MYSQL_USER=lngdb
+      - MYSQL_PASSWORD=lngdb
     networks:
       - spring-mysql  
     ports:
