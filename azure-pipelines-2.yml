@@ -40,7 +40,7 @@ stages:
         mavenAuthenticateFeed: false
         effectivePomSkip: false
         sonarQubeRunAnalysis: false
-    - task: DockerCompose@0
+      
     - task: DockerCompose@0
       inputs:
         containerregistrytype: 'Azure Container Registry'
