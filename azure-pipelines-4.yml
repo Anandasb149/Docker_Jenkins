@@ -27,11 +27,11 @@ steps:
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
 - task: CopyFiles@2
-  displayName: 'Copy ARM templates'
+  displayName: 'Copy Files to artifact staging directory'
   inputs:
-      SourceFolder: ArmTemplates
-      TargetFolder: '$(build.artifactstagingdirectory)'
+        SourceFolder: '$(System.DefaultWorkingDirectory)'
+        Contents: '**/target/*.?(war|jar)'
+        TargetFolder: $(Build.ArtifactStagingDirectory)
 
-    # Publish the app as an artifact
-- publish: $(Build.StagingDirectory)
-  artifact: app
+- upload: $(Build.ArtifactStagingDirectory)
+  artifact: drop
