@@ -20,12 +20,6 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
-- task: Docker@2
-  inputs:
-    containerRegistry: 'DocAnand'
-    repository: 'SpringSingle'
-    command: 'buildAndPush'
-    Dockerfile: '**/Dockerfile'
 - task: CopyFiles@2
   displayName: 'Copy Files to artifact staging directory'
   inputs:
@@ -35,3 +29,11 @@ steps:
 
 - upload: $(Build.ArtifactStagingDirectory)
   artifact: drop
+  
+- task: Docker@2
+  inputs:
+    containerRegistry: 'DocAnand'
+    repository: 'SpringSingle'
+    command: 'buildAndPush'
+    Dockerfile: '**/Dockerfile'
+
